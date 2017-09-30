@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="#00bcd4">
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+    <LinearLayout
+        android:layout_width="330dp"
+        android:layout_height="380dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#ffffff"
+        android:elevation="60dp">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:textColorHint="#dbdbdb"
+            android:backgroundTint="#00bcd4"
+            android:inputType="textCapSentences"
+            android:layout_marginLeft="30dp"
+            android:gravity="center"
+            android:layout_marginRight="30dp"
+            android:id="@+id/editTextName" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Email Address"
+            android:backgroundTint="#00bcd4"
+            android:inputType="textEmailAddress"
+            android:layout_marginLeft="30dp"
+            android:gravity="center"
+            android:layout_marginRight="30dp"
+            android:id="@+id/editTextemail"
+            android:layout_marginTop="20dp"
+            android:textColorHint="#dbdbdb"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Password"
+            android:backgroundTint="#00bcd4"
+            android:inputType="textPassword"
+            android:layout_marginLeft="30dp"
+            android:gravity="center"
+            android:layout_marginRight="30dp"
+            android:id="@+id/editTextpass"
+            android:layout_marginTop="20dp"
+            android:textColorHint="#dbdbdb"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Department"
+            android:backgroundTint="#00bcd4"
+            android:inputType="textCapSentences"
+            android:layout_marginLeft="30dp"
+            android:gravity="center"
+            android:layout_marginRight="30dp"
+            android:id="@+id/editdept"
+            android:layout_marginTop="20dp"
+            android:textColorHint="#dbdbdb"
+            />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="200dp"
+            android:layout_marginTop="50dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round"
+            android:backgroundTint="#00bcd4"
+            android:text="Sign Up"
+            android:textSize="16sp" />
+            </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
