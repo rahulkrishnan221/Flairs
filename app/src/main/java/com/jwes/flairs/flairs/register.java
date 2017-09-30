@@ -1,11 +1,13 @@
 package com.jwes.flairs.flairs;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
-    String check="";
+/**
+ * Created by rahul on 1/10/17.
+ */
 
+public class register extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
