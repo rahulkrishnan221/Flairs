@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#ffffff">
+    android:background="#FFFCF6">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,9 +49,9 @@
                 android:layout_height="330dp"
                 android:orientation="vertical"
                 android:layout_marginTop="70dp"
-                android:background="#ffffff"
+                android:background="#FFFCF6"
                 android:layout_gravity="center"
-                android:elevation="60dp">
+                android:elevation="10dp">
             <EditText
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
