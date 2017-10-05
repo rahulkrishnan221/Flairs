@@ -22,7 +22,7 @@ public class login extends AppCompatActivity implements View.OnClickListener{
 
     public static final String PASSWORD = "PASSWORD";
 
-    private static final String LOGIN_URL = "https://alexcodes.000webhostapp.com/Flairs/App/signin.php";
+    private static final String loginUrl=url.LOGIN_URL;
     private EditText editTextemail;
     private EditText editTextPassword;
 
@@ -75,7 +75,7 @@ public class login extends AppCompatActivity implements View.OnClickListener{
 
                 RegisterUserClass ruc = new RegisterUserClass();
 
-                String result = ruc.sendPostRequest(LOGIN_URL,data);
+                String result = ruc.sendPostRequest(loginUrl,data);
 
                 return result;
             }

@@ -25,7 +25,9 @@ public class register extends AppCompatActivity implements View.OnClickListener{
 
     private Button buttonRegister;
 
-    private static final String REGISTER_URL = "https://alexcodes.000webhostapp.com/Flairs/App/register.php";
+
+    private static final String registerUrl=url.REGISTER_URL;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,7 +90,7 @@ public class register extends AppCompatActivity implements View.OnClickListener{
                 data.put("department",params[2]);
                 data.put("password",params[3]);
 
-                String result = ruc.sendPostRequest(REGISTER_URL,data);
+                String result = ruc.sendPostRequest(registerUrl,data);
 
                 return  result;
             }
