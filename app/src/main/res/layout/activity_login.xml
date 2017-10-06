@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFCF6">
+    android:background="#FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +28,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center">
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
@@ -40,6 +41,11 @@
                 android:textStyle="bold"
                 android:textColor="#ffffff"
                 android:tooltipText=""/>
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/micon"
+                />
 
 
 
@@ -48,8 +54,8 @@
                 android:layout_width="300dp"
                 android:layout_height="330dp"
                 android:orientation="vertical"
-                android:layout_marginTop="70dp"
-                android:background="#FFFCF6"
+                android:layout_marginTop="30dp"
+                android:background="#FFFFFF"
                 android:layout_gravity="center"
                 android:elevation="10dp">
             <EditText
