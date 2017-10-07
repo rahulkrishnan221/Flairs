@@ -19,7 +19,7 @@ public class option extends AppCompatActivity{
         tologin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(option.this,login.class);
+                Intent i=new Intent(option.this,loginf.class);
                 startActivity(i);
             }
         });
