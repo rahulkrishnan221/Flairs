@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "352338987215",
+    "firebase_url": "https://flairs-6fa83.firebaseio.com",
+    "project_id": "flairs-6fa83",
+    "storage_bucket": "flairs-6fa83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:352338987215:android:bd08fe04bd1f36a4",
+        "android_client_info": {
+          "package_name": "com.jwes.flairs.flairs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "352338987215-ta0dsmf0oaq98ueg11p4n37ru5ktj7rb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jwes.flairs.flairs",
+            "certificate_hash": "ee6c95584b1b413d534aa04827ba5ad8ec2cdaaf"
+          }
+        },
+        {
+          "client_id": "352338987215-31svlcnega8lo9tatard6kcdp2s23kv0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDo5ALdJ-40rqT8bNKIvPTE_jib5Zm7Mn8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "352338987215-31svlcnega8lo9tatard6kcdp2s23kv0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

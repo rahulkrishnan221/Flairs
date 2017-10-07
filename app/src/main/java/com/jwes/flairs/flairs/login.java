@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.util.HashMap;
@@ -25,6 +26,7 @@ public class login extends AppCompatActivity implements View.OnClickListener{
     private static final String loginUrl=url.LOGIN_URL;
     private EditText editTextemail;
     private EditText editTextPassword;
+    private ImageButton tempButton;
 
     private Button buttonLogin;
     @Override
@@ -37,6 +39,9 @@ public class login extends AppCompatActivity implements View.OnClickListener{
         buttonLogin = (Button) findViewById(R.id.login);
 
         buttonLogin.setOnClickListener(this);
+        tempButton= (ImageButton) findViewById(R.id.tempButton);
+
+        tempButton.setOnClickListener(this);
 
     }
     private void login(){
@@ -88,6 +93,10 @@ public class login extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
         if(v == buttonLogin){
             login();
+        }
+        if(v == tempButton){
+            Intent l=new Intent(login.this,MainActivity.class);
+            startActivity(l);
         }
 
         }
