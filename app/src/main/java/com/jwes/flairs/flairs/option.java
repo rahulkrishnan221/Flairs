@@ -27,7 +27,7 @@ public class option extends AppCompatActivity{
         toregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent j=new Intent(option.this,register.class);
+                Intent j=new Intent(option.this,registerf.class);
                 startActivity(j);
             }
         });
