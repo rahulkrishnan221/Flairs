@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -20,6 +21,8 @@ public class registerf extends AppCompatActivity {
     private EditText txtEmailAddress;
     private EditText txtPassword;
     private FirebaseAuth firebaseAuth;
+    private Button registerf;
+    private EditText txtName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +30,36 @@ public class registerf extends AppCompatActivity {
         setContentView(R.layout.activity_registerf);
         txtEmailAddress = (EditText) findViewById(R.id.editTextEmailf);
         txtPassword = (EditText) findViewById(R.id.editTextPasswordf);
+        txtName=(EditText) findViewById(R.id.editTextNamef);
+
         firebaseAuth = FirebaseAuth.getInstance();
+        registerf=(Button)findViewById(R.id.buttonRegisterf);
+        registerf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                validate();
+            }
+        });
     }
-    public void btnRegistrationUser_Click(View v) {
+    public void validate()
+    {
+        if(txtEmailAddress.getText().length()<1)
+
+            Toast.makeText(this, "Please enter the email", Toast.LENGTH_SHORT).show();
+        else if(txtPassword.getText().length()<1)
+            Toast.makeText(this, "Please enter the valid password", Toast.LENGTH_SHORT).show();
+        else if(txtName.getText().length()<1)
+            Toast.makeText(this, "Please enter the Name", Toast.LENGTH_SHORT).show();
+
+        else
+            register();
+
+    }
+
+
+
+
+    public void register() {
 
         final ProgressDialog progressDialog = ProgressDialog.show(registerf.this, "Please wait...", "Processing...", true);
         (firebaseAuth.createUserWithEmailAndPassword(txtEmailAddress.getText().toString(), txtPassword.getText().toString()))
@@ -51,5 +81,14 @@ public class registerf extends AppCompatActivity {
                     }
                 });
     }
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(registerf.this, option.class));
+        finish();
+
+    }
+
 }
 

@@ -7,7 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,6 +22,8 @@ public class loginf extends AppCompatActivity {
     private EditText txtEmailLogin;
     private EditText txtPwd;
     private FirebaseAuth firebaseAuth;
+    private LinearLayout forgot;
+    private Button loginf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +32,40 @@ public class loginf extends AppCompatActivity {
         txtEmailLogin = (EditText) findViewById(R.id.emailf);
         txtPwd = (EditText) findViewById(R.id.passwordf);
         firebaseAuth = FirebaseAuth.getInstance();
+        forgot=(LinearLayout) findViewById(R.id.forgot);
+        loginf=(Button)findViewById(R.id.loginf) ;
+        loginf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                validate();
+            }
+        });
+
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent x=new Intent(loginf.this ,forgot.class);
+                startActivity(x);
+
+            }
+        });
     }
-    public void btnUserLogin_Click(View v) {
+
+    public void validate()
+    {
+        if(txtEmailLogin.getText().length()<1)
+            Toast.makeText(this, "Please enter the email", Toast.LENGTH_SHORT).show();
+        else if(txtPwd.getText().length()<1)
+            Toast.makeText(this, "Please enter the valid password", Toast.LENGTH_SHORT).show();
+        else
+            login();
+    }
+
+
+
+
+
+    public void login() {
         final ProgressDialog progressDialog = ProgressDialog.show(loginf.this, "Please wait...", "Proccessing...", true);
 
         (firebaseAuth.signInWithEmailAndPassword(txtEmailLogin.getText().toString(), txtPwd.getText().toString()))
@@ -51,4 +87,13 @@ public class loginf extends AppCompatActivity {
                     }
                 });
     }
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(loginf.this, option.class));
+        finish();
+
+    }
+
 }

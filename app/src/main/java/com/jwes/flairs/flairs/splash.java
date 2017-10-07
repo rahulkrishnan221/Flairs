@@ -5,8 +5,11 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class splash extends AppCompatActivity {
     private static int SPLASH_TIME_OUT = 2000;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +27,15 @@ public class splash extends AppCompatActivity {
                 // Start your app main activity
 
                 // close this activity
-                Intent i=new Intent(splash.this,option.class);
-                startActivity(i);
+                firebaseAuth = FirebaseAuth.getInstance();
+                if(firebaseAuth.getCurrentUser()!=null) {
+                    startActivity(new Intent(splash.this, MainActivity.class));
+                }
+                else
+                {
+                    Intent x=new Intent(splash.this,option.class);
+                    startActivity(x);
+                }
 
                 finish();
             }

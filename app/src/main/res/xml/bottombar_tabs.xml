@@ -1,18 +1,22 @@
 <tabs>
-        <tab
-            id="@+id/book"
-            icon="@drawable/book"
-            title="Book" />
-        <tab
-            id="@+id/video"
-            icon="@drawable/video"
-            title="Video" />
-        <tab
-            id="@+id/library"
-            icon="@drawable/library"
-            title="Library" />
     <tab
-        id="@+id/user"
+        icon="@drawable/book"
+        id="@+id/book"
+        title="Book" />
+    <tab
+        icon="@drawable/video"
+        id="@+id/video"
+        title="Video" />
+    <tab
+        icon="@drawable/library"
+        id="@+id/library"
+        title="Library" />
+    <tab
         icon="@drawable/user"
+        id="@+id/user"
         title="Profile" />
-    </tabs>
+    <tab
+        icon="@drawable/setting"
+        id="@+id/setting"
+        title="Setting"/>
+</tabs>

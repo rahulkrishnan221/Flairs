@@ -83,16 +83,21 @@
                 android:text="Login"
                 android:textColor="#ffffff"
                 android:textSize="16sp"
-                android:layout_marginTop="40dp"
-                android:onClick="btnUserLogin_Click"/>
+                android:layout_marginTop="40dp" />
 
-            <ImageButton
-                android:id="@+id/tempButtonf"
+            <LinearLayout
                 android:layout_width="220dp"
-                android:layout_gravity="center"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/go" />
+                android:id="@+id/forgot">
+
+                <TextView
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:text="Forgot Password??"
+                    android:textSize="15dp"/>
+            </LinearLayout>
         </LinearLayout>
 
 
