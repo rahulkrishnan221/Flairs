@@ -24,14 +24,15 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".option"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".login"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".register"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".loginf"></activity>
+        <activity android:name=".loginf" />
+        <activity android:name=".registerf"></activity>
     </application>
 
 </manifest>
