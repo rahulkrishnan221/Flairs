@@ -1,68 +1,68 @@
 package com.jwes.flairs.flairs;
 
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.IdRes;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+
+
 import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnMenuTabClickListener;
+import com.roughike.bottombar.OnTabReselectListener;
+import com.roughike.bottombar.OnTabSelectListener;;
 
 
-public class MainActivity extends AppCompatActivity {
-    String check="";
-    BottomBar nBottomBar;
-
-
-
-
+public class MainActivity extends Activity {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        nBottomBar=BottomBar.attach(this,savedInstanceState);
-        nBottomBar.setItemsFromMenu(R.menu.menu_tabbed, new OnMenuTabClickListener() {
+
+        BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
+        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
-            public void onMenuTabSelected(@IdRes int i) {
+            public void onTabSelected(@IdRes int tabId) {
+                if (tabId == R.id.book) {
 
-                if(i==R.id.book)
-                {
-                    BookFragment f=new BookFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame,f).commit();
                 }
+                if (tabId == R.id.video) {
 
-                if(i==R.id.video)
-                {
-                    VideoFragment f=new VideoFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame,f).commit();
                 }
+                if (tabId == R.id.library) {
 
-                if(i==R.id.library)
-                {
-                    LibraryFragment f=new LibraryFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame,f).commit();
                 }
+                if (tabId == R.id.user) {
 
-                if(i==R.id.user)
-                {
-                    ProfileFragment f=new ProfileFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame,f).commit();
                 }
-
-
             }
-
+        });
+        bottomBar.setOnTabReselectListener(new OnTabReselectListener() {
             @Override
-            public void onMenuTabReSelected(@IdRes int menuItemId) {
+            public void onTabReSelected(@IdRes int tabId) {
+                if (tabId == R.id.book) {
+                    // The tab with id R.id.tab_faites was reselected,
+                    // change your content accordingly.
 
+                }
+                if (tabId == R.id.video) {
+
+                }
+                if (tabId == R.id.library) {
+
+                }
+                if (tabId == R.id.user) {
+
+                }
             }
         });
 
-        nBottomBar.mapColorForTab(0,"#00bcd4");
-        nBottomBar.mapColorForTab(1,"#00bcd4");
-        nBottomBar.mapColorForTab(2,"#00bcd4");
-        nBottomBar.mapColorForTab(3,"#00bcd4");
-
 
     }
+
+
 }
+

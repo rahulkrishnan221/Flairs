@@ -1,0 +1,18 @@
+<tabs>
+        <tab
+            id="@+id/book"
+            icon="@drawable/book"
+            title="Book" />
+        <tab
+            id="@+id/video"
+            icon="@drawable/video"
+            title="Video" />
+        <tab
+            id="@+id/library"
+            icon="@drawable/library"
+            title="Library" />
+    <tab
+        id="@+id/user"
+        icon="@drawable/user"
+        title="Profile" />
+    </tabs>
