@@ -21,7 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
         <activity
             android:name=".option"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -33,7 +32,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".loginf" />
         <activity android:name=".registerf" />
-        <activity android:name=".forgot"></activity>
+        <activity android:name=".forgot" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"></activity>
     </application>
 
 </manifest>

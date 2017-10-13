@@ -12,15 +12,9 @@
 
     </item>
 
-    <item android:id="@+id/library"
-        android:icon="@drawable/library"
-        android:title="library">
-
-    </item>
-
     <item android:id="@+id/user"
         android:icon="@drawable/user"
-        android:title="profile">
+        android:title="Profile">
 
     </item>
 

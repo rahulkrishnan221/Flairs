@@ -1,68 +1,48 @@
 package com.jwes.flairs.flairs;
 
-
-import android.app.Activity;
-import android.content.Intent;
+import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.support.annotation.IdRes;
-import android.support.annotation.Nullable;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
 
 
+    public BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnTabReselectListener;
-import com.roughike.bottombar.OnTabSelectListener;;
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            FragmentManager fragmentManager=getSupportFragmentManager();
+            FragmentTransaction transaction=fragmentManager.beginTransaction();
+            switch (item.getItemId()) {
+                case R.id.book:
+                    transaction.replace(R.id.content,new BookFragment()).commit();
+                    return true;
+                case R.id.video:
+                    transaction.replace(R.id.content,new VideoFragment()).commit();
+                    return true;
+                case R.id.user:
+                    transaction.replace(R.id.content,new ProfileFragment()).commit();
+                    return true;
+            }
+            return false;
+        }
 
+    };
 
-public class MainActivity extends Activity {
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
-        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
-            @Override
-            public void onTabSelected(@IdRes int tabId) {
-                if (tabId == R.id.book) {
 
-                }
-                if (tabId == R.id.video) {
-
-                }
-                if (tabId == R.id.library) {
-
-                }
-                if (tabId == R.id.user) {
-
-                }
-            }
-        });
-        bottomBar.setOnTabReselectListener(new OnTabReselectListener() {
-            @Override
-            public void onTabReSelected(@IdRes int tabId) {
-                if (tabId == R.id.book) {
-                    // The tab with id R.id.tab_faites was reselected,
-                    // change your content accordingly.
-
-                }
-                if (tabId == R.id.video) {
-
-                }
-                if (tabId == R.id.library) {
-
-                }
-                if (tabId == R.id.user) {
-
-                }
-            }
-        });
-
-
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
-
 }
-
