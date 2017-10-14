@@ -10,35 +10,26 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 
-public class VideoFragment extends Fragment {
+public class LibraryFragment extends Fragment {
 
-    private VideoFragment.OnFragmentInteractionListener mListener;
+    private OnFragmentInteractionListener mListener;
 
-    public static VideoFragment newInstance() {
-    VideoFragment fragment = new VideoFragment();
-    return fragment;
-}
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_video, container, false);
+        return inflater.inflate(R.layout.fragment_library, container, false);
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof VideoFragment.OnFragmentInteractionListener) {
-            mListener = (VideoFragment.OnFragmentInteractionListener) context;
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
         } else {
-            Toast.makeText(context, "Video Fragment", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Library Fragment", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -47,6 +38,4 @@ public class VideoFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-
-
 }
