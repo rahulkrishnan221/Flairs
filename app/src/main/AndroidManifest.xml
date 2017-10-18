@@ -35,7 +35,8 @@
         <activity android:name=".forgot" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main"></activity>
+            android:label="@string/title_activity_main" />
+        <activity android:name=".Profile"></activity>
     </application>
 
 </manifest>

@@ -1,11 +1,13 @@
 package com.jwes.flairs.flairs;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -48,6 +50,25 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction transaction=fragmentManager.beginTransaction();
         transaction.replace(R.id.content,new BookFragment()).commit();
 
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+
+        getMenuInflater().inflate(R.menu.actionbarcontent,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+
+        switch(item.getItemId())
+        {
+            case R.id.user:
+                startActivity(new Intent(this,Profile.class));
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }
