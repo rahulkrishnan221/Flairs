@@ -6,7 +6,10 @@ import android.os.Bundle;
 
 import com.github.barteksc.pdfviewer.PDFView;
 
+import org.apache.commons.io.IOUtils;
+
 import java.io.BufferedInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -20,12 +23,12 @@ PDFView pdfView;
         pdfView=(PDFView)findViewById(R.id.pdfview);
         new pdf.Retrievepdfstream().execute("https://firebasestorage.googleapis.com/v0/b/flairs-6fa83.appspot.com/o/video%2FDS%20Record%20Final.pdf?alt=media&token=90462032-bd4c-468b-91d0-c44473852786");
     }
-    class Retrievepdfstream extends AsyncTask<String, Void,InputStream>
+    class Retrievepdfstream extends AsyncTask<String, Void,byte[]>
     {
 
 
         @Override
-        protected InputStream doInBackground(String... strings) {
+        protected byte[] doInBackground(String... strings) {
             InputStream inputStream = null;
             try {
                 URL url=new URL(strings[0]);
@@ -39,12 +42,19 @@ PDFView pdfView;
             } catch (Exception e) {
                 return null;
             }
-            return inputStream;
+            try {
+                return IOUtils.toByteArray(inputStream);
+            }
+            catch (IOException e)
+            {
+             e.printStackTrace();
+            }
+            return null;
         }
 
         @Override
-        protected void onPostExecute(InputStream inputStream) {
-            pdfView.fromStream(inputStream).load();
+        protected void onPostExecute(byte[] bytes) {
+            pdfView.fromBytes(bytes).load();
         }
     }
 }
