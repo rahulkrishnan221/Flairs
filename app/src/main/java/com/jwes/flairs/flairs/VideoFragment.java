@@ -4,49 +4,68 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.media.session.MediaControllerCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.MediaController;
 import android.widget.Toast;
+import android.widget.VideoView;
+
+import static android.R.attr.button;
 
 
-public class VideoFragment extends Fragment {
+public class VideoFragment extends Fragment{
 
-    private VideoFragment.OnFragmentInteractionListener mListener;
+
+    MediaController mediaC;
+    VideoView videov;
 
     public static VideoFragment newInstance() {
     VideoFragment fragment = new VideoFragment();
+
     return fragment;
 }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_video, container, false);
+        View view = inflater.inflate(R.layout.fragment_video,
+                container, false);
+        Button play = (Button) view.findViewById(R.id.play);
+        videov=(VideoView) view.findViewById(R.id.videoView);
+        play.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+              videoplay();
+            }
+        });
+
+        mediaC=new MediaController(getContext());
+        Toast.makeText(getContext(), "hello", Toast.LENGTH_SHORT).show();
+
+        return view;
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof VideoFragment.OnFragmentInteractionListener) {
-            mListener = (VideoFragment.OnFragmentInteractionListener) context;
-        } else {
-            Toast.makeText(context, "Video Fragment", Toast.LENGTH_SHORT).show();
-        }
+
+
+
+    public void videoplay()
+    {
+       String videopath="https://firebasestorage.googleapis.com/v0/b/flairs-6fa83.appspot.com/o/video%2Ftest.mp4?alt=media&token=ebd91607-64e0-4eda-8ced-25ae51b6b24a";
+       Uri uri=Uri.parse(videopath);
+        videov.setVideoURI(uri);
+       videov.setMediaController(mediaC);
+        mediaC.setAnchorView(videov);
+        videov.start();
     }
 
 
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
 
 
 }
