@@ -1,6 +1,8 @@
 package com.jwes.flairs.flairs;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,8 +22,7 @@ import static android.R.attr.button;
 public class VideoFragment extends Fragment{
 
 
-    MediaController mediaC;
-    VideoView videov;
+
 
     public static VideoFragment newInstance() {
     VideoFragment fragment = new VideoFragment();
@@ -36,7 +37,7 @@ public class VideoFragment extends Fragment{
         View view = inflater.inflate(R.layout.fragment_video,
                 container, false);
         Button play = (Button) view.findViewById(R.id.play);
-        videov=(VideoView) view.findViewById(R.id.videoView);
+
         play.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -46,7 +47,7 @@ public class VideoFragment extends Fragment{
             }
         });
 
-        mediaC=new MediaController(getContext());
+
         Toast.makeText(getContext(), "hello", Toast.LENGTH_SHORT).show();
 
         return view;
@@ -57,12 +58,10 @@ public class VideoFragment extends Fragment{
 
     public void videoplay()
     {
-       String videopath="https://firebasestorage.googleapis.com/v0/b/flairs-6fa83.appspot.com/o/video%2Ftest.mp4?alt=media&token=ebd91607-64e0-4eda-8ced-25ae51b6b24a";
-       Uri uri=Uri.parse(videopath);
-        videov.setVideoURI(uri);
-       videov.setMediaController(mediaC);
-        mediaC.setAnchorView(videov);
-        videov.start();
+        Intent i = new Intent(getActivity(), VideoLandscape.class);
+        startActivity(i);
+        ((Activity) getActivity()).overridePendingTransition(0,0);
+
     }
 
 

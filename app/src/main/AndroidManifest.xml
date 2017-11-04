@@ -38,7 +38,11 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main" />
         <activity android:name=".Profile" />
-        <activity android:name=".pdf"></activity>
+        <activity android:name=".pdf" />
+        <activity
+            android:name=".VideoLandscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="screenLayout|screenSize|orientation"/>
     </application>
 
 </manifest>
