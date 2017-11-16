@@ -3,6 +3,7 @@ package com.jwes.flairs.flairs;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -37,6 +38,7 @@ public class VideoLandscape extends AppCompatActivity {
         videov.start();
 
 
+
     }
 
     private RelativeLayout.LayoutParams paramsNotFullscreen; //if you're using RelativeLatout
@@ -63,4 +65,6 @@ public class VideoLandscape extends AppCompatActivity {
             videov.setLayoutParams(paramsNotFullscreen);
         }
     }
+
+
 }

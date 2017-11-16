@@ -1,8 +1,10 @@
 package com.jwes.flairs.flairs;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ProgressBar;
 
 import com.github.barteksc.pdfviewer.PDFView;
 
@@ -25,7 +27,7 @@ PDFView pdfView;
     }
     class Retrievepdfstream extends AsyncTask<String, Void,byte[]>
     {
-
+ProgressDialog loading;
 
         @Override
         protected byte[] doInBackground(String... strings) {
@@ -55,6 +57,12 @@ PDFView pdfView;
         @Override
         protected void onPostExecute(byte[] bytes) {
             pdfView.fromBytes(bytes).load();
+            loading.dismiss();
+        }
+        @Override
+        protected void onPreExecute(){
+            super.onPreExecute();
+            loading=ProgressDialog.show(pdf.this,"Please wait","Hold on......",true,true);
         }
     }
 }
