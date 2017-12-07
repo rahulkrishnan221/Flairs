@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFCF6">
+    android:background="#FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
                 android:textAllCaps="false"
                 android:textSize="50sp"
                 android:textStyle="bold"
-                android:textColor="#ffffff"
+                android:textColor="#FFFFFF"
                 android:tooltipText=""/>
 
 
@@ -49,7 +49,7 @@
             android:layout_height="330dp"
             android:orientation="vertical"
             android:layout_marginTop="70dp"
-            android:background="#FFFCF6"
+            android:background="#FFFFFF"
             android:layout_gravity="center"
             android:elevation="10dp">
             <EditText
@@ -97,7 +97,17 @@
                     android:layout_height="wrap_content"
                     android:text="Forgot Password??"
                     android:textSize="15dp"/>
+
+
             </LinearLayout>
+            <com.google.android.gms.common.SignInButton
+            android:id="@+id/googlesb"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            />
+
         </LinearLayout>
 
 
