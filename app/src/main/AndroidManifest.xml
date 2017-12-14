@@ -31,9 +31,12 @@
         <activity
             android:name=".register"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".loginf" />
-        <activity android:name=".registerf" />
-        <activity android:name=".forgot" />
+        <activity android:name=".loginf"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".registerf"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".forgot"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main" />

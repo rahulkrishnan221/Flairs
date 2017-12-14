@@ -31,7 +31,7 @@ public class registerf extends AppCompatActivity {
         setContentView(R.layout.activity_registerf);
         txtEmailAddress = (EditText) findViewById(R.id.editTextEmailf);
         txtPassword = (EditText) findViewById(R.id.editTextPasswordf);
-        txtName=(EditText) findViewById(R.id.editTextNamef);
+
 
         firebaseAuth = FirebaseAuth.getInstance();
         registerf=(Button)findViewById(R.id.buttonRegisterf);
