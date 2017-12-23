@@ -31,22 +31,27 @@
         <activity
             android:name=".register"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".loginf"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".registerf"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".forgot"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".loginf"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".registerf"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".forgot"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main" />
-        <activity android:name=".Profile"
+        <activity
+            android:name=".Profile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".pdf" />
         <activity
             android:name=".VideoLandscape"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="screenLayout|screenSize|orientation"/>
+            android:configChanges="screenLayout|screenSize|orientation"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".recycle"></activity>
     </application>
 
 </manifest>
