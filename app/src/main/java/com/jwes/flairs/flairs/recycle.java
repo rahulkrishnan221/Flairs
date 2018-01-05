@@ -23,7 +23,7 @@ public class recycle extends AppCompatActivity {
     private RecyclerView mBlogList;
     FirebaseDatabase database;
     DatabaseReference myRef;
-
+    private int row_count=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +43,7 @@ public class recycle extends AppCompatActivity {
     @Override
     protected void onStart()
     {
+
         super.onStart();
         FirebaseRecyclerAdapter<ModelClass, BlogViewHolder>firebaseRecyclerAdapter=new FirebaseRecyclerAdapter<ModelClass, BlogViewHolder>(
                 ModelClass.class,
@@ -51,17 +52,24 @@ public class recycle extends AppCompatActivity {
                 myRef)
          {
              @Override
-             protected void populateViewHolder(BlogViewHolder viewHolder, ModelClass model,int position){
-               viewHolder.setTitle(model.getTitle());
-                 viewHolder.setImage(getApplicationContext(),model.getImage());
+             protected void populateViewHolder(BlogViewHolder viewHolder, ModelClass model,int position)
+             {
+                         viewHolder.setTitle(model.getTitle(),position);
+                         viewHolder.setImage(getApplicationContext(), model.getImage(),position);
+                         row_count++;
              }
         };
-        mBlogList.setAdapter(firebaseRecyclerAdapter);
+       if((row_count%2)!=0) {
+            mBlogList.setAdapter(firebaseRecyclerAdapter);
+        }
+
 
     }
 
     public static class BlogViewHolder extends RecyclerView.ViewHolder{
         View mView;
+        private int text_count=1;
+        private int image_count=1;
         public BlogViewHolder(View itemView)
         {
             super(itemView);
@@ -77,16 +85,32 @@ public class recycle extends AppCompatActivity {
             });
         }
 
-        public void setTitle(String title)
-        {
-            TextView post_title=(TextView)mView.findViewById(R.id.titleText);
+        public void setTitle(String title,int pos) {
+            if ((pos % 2) == 0)
+            {
+                TextView post_title = (TextView) mView.findViewById(R.id.titleText);
             post_title.setText(title);
         }
-        public void setImage(Context ctx,String image)
+        else
+            {
+                TextView post_title = (TextView) mView.findViewById(R.id.titleText1);
+                post_title.setText(title);
+            }
+
+        }
+        public void setImage(Context ctx,String image,int pos)
         {
-            ImageView post_image=(ImageView)mView.findViewById(R.id.imageViewy);
-            //We pass context
-            Picasso.with(ctx).load(image).into(post_image);
+            if ((pos % 2) == 0) {
+                ImageView post_image = (ImageView) mView.findViewById(R.id.imageViewy);
+                //We pass context
+                Picasso.with(ctx).load(image).into(post_image);
+            }
+            else
+            {
+                ImageView post_image = (ImageView) mView.findViewById(R.id.imageViewx);
+                //We pass context
+                Picasso.with(ctx).load(image).into(post_image);
+            }
         }
     }
 

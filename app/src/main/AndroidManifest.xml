@@ -41,9 +41,6 @@
             android:name=".forgot"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main" />
-        <activity
             android:name=".Profile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".pdf" />
@@ -51,7 +48,11 @@
             android:name=".VideoLandscape"
             android:configChanges="screenLayout|screenSize|orientation"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".recycle"></activity>
+        <activity android:name=".recycle" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
