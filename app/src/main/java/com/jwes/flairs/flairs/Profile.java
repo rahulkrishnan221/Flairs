@@ -43,6 +43,34 @@ public class Profile extends AppCompatActivity {
         develop=(LinearLayout)findViewById(R.id.developers);
         rating=(LinearLayout)findViewById(R.id.rate);
 
+        depart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                department();
+            }
+        });
+
+        cont.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                contact();
+            }
+        });
+
+        develop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                developers();
+            }
+        });
+
+        rating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rate();
+            }
+        });
+
         }
     public void out()
     {
@@ -53,7 +81,29 @@ public class Profile extends AppCompatActivity {
         }
     }
 
+    public void department()
+    {
 
+            startActivity(new Intent(Profile.this,department.class));
 
+    }
+
+    public void developers()
+    {
+            startActivity(new Intent(Profile.this,developers.class));
+
+    }
+
+    public void contact()
+    {
+            startActivity(new Intent(Profile.this,contact.class));
+
+    }
+
+    public void rate()
+    {
+            startActivity(new Intent(Profile.this,rate.class));
+
+    }
 
 }

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.firebase.storage.StorageReference;
@@ -17,6 +18,8 @@ import com.google.firebase.storage.StorageReference;
 
 
 public class BookFragment extends Fragment {
+
+    private LinearLayout book;
 
     private BookFragment.OnFragmentInteractionListener mListener;
 
@@ -26,17 +29,25 @@ public class BookFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_book, container, false);
-        Button button=(Button)view.findViewById(R.id.pdfb);
-        button.setOnClickListener(new View.OnClickListener()
+        book=(LinearLayout)view.findViewById(R.id.bookact);
+        book.setOnClickListener(new View.OnClickListener()
         {
-            @Override
-            public void onClick(View v)
-            {
-               next();
-            }
+          @Override
+        public void onClick(View v)
+        {
+        bookcall();
+        }
         });
         return view;
     }
+
+    public void bookcall()
+     {
+     Intent i = new Intent(getActivity(), branch_selection.class);
+     startActivity(i);
+
+     }
+
 
 
     @Override

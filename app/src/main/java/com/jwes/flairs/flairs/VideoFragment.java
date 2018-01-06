@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -20,9 +21,7 @@ import static android.R.attr.button;
 
 
 public class VideoFragment extends Fragment{
-
-
-
+    private LinearLayout video;
 
     public static VideoFragment newInstance() {
     VideoFragment fragment = new VideoFragment();
@@ -36,16 +35,26 @@ public class VideoFragment extends Fragment{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_video,
                 container, false);
-        Button play = (Button) view.findViewById(R.id.play);
 
-        play.setOnClickListener(new View.OnClickListener()
+        video=(LinearLayout)view.findViewById(R.id.videoact);
+        video.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-              videoplay();
+                videocall();
             }
         });
+        //Button play = (Button) view.findViewById(R.id.play);
+
+        //play.setOnClickListener(new View.OnClickListener()
+        //{
+          //  @Override
+            //public void onClick(View v)
+            //{
+              //videoplay();
+            //}
+        //});
 
 
         Toast.makeText(getContext(), "hello", Toast.LENGTH_SHORT).show();
@@ -53,16 +62,23 @@ public class VideoFragment extends Fragment{
         return view;
     }
 
+    public void videocall()
+    {
+        Intent i = new Intent(getActivity(), branch_selection.class);
+        startActivity(i);
+
+    }
 
 
 
-    public void videoplay()
+
+    /**public void videoplay()
     {
         Intent i = new Intent(getActivity(), VideoLandscape.class);
         startActivity(i);
         ((Activity) getActivity()).overridePendingTransition(0,0);
 
-    }
+    }**/
 
 
 

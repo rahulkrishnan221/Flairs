@@ -52,7 +52,12 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".department" />
+        <activity android:name=".developers" />
+        <activity android:name=".contact" />
+        <activity android:name=".rate" />
+        <activity android:name=".branch_selection"></activity>
     </application>
 
 </manifest>

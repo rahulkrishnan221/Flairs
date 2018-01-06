@@ -4,17 +4,42 @@
     android:layout_height="match_parent"
     tools:context="com.jwes.flairs.flairs.VideoFragment">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="350dp"
+        android:layout_gravity="center"
+        android:background="@drawable/card"
+        android:elevation="20dp"
+        android:orientation="vertical"
+        android:id="@+id/videoact">
 
-        <Button
-            android:id="@+id/play"
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="80dp"
+            android:background="@drawable/video_tutorial"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="50dp"/>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="51dp" />
-    </RelativeLayout>
+            android:text="Videos"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="60dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="One stop for all your video tutoria1 requirements"
+            android:textSize="13dp"
+            android:textStyle="italic"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"/>
+
+
+    </LinearLayout>
 
 </FrameLayout>
