@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 
 import android.support.v7.widget.RecyclerView;
@@ -23,7 +24,7 @@ public class recycle extends AppCompatActivity {
     private RecyclerView mBlogList;
     FirebaseDatabase database;
     DatabaseReference myRef;
-    private int row_count=1;
+    private int columns=2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +33,7 @@ public class recycle extends AppCompatActivity {
         //Recycler View
         mBlogList=(RecyclerView)findViewById(R.id.blog_list);
         mBlogList.setHasFixedSize(true);
-        mBlogList.setLayoutManager(new LinearLayoutManager(this));
+        mBlogList.setLayoutManager(new GridLayoutManager(this,columns));
 
         //send a Query to the database
 
@@ -54,22 +55,19 @@ public class recycle extends AppCompatActivity {
              @Override
              protected void populateViewHolder(BlogViewHolder viewHolder, ModelClass model,int position)
              {
-                         viewHolder.setTitle(model.getTitle(),position);
-                         viewHolder.setImage(getApplicationContext(), model.getImage(),position);
-                         row_count++;
+                         viewHolder.setTitle(model.getTitle());
+                         viewHolder.setImage(getApplicationContext(), model.getImage());
              }
         };
-       if((row_count%2)!=0) {
+
             mBlogList.setAdapter(firebaseRecyclerAdapter);
-        }
+
 
 
     }
 
     public static class BlogViewHolder extends RecyclerView.ViewHolder{
         View mView;
-        private int text_count=1;
-        private int image_count=1;
         public BlogViewHolder(View itemView)
         {
             super(itemView);
@@ -85,33 +83,18 @@ public class recycle extends AppCompatActivity {
             });
         }
 
-        public void setTitle(String title,int pos) {
-            if ((pos % 2) == 0)
-            {
+        public void setTitle(String title) {
+
                 TextView post_title = (TextView) mView.findViewById(R.id.titleText);
             post_title.setText(title);
         }
-        else
-            {
-                TextView post_title = (TextView) mView.findViewById(R.id.titleText1);
-                post_title.setText(title);
-            }
-
-        }
-        public void setImage(Context ctx,String image,int pos)
+        public void setImage(Context ctx,String image)
         {
-            if ((pos % 2) == 0) {
                 ImageView post_image = (ImageView) mView.findViewById(R.id.imageViewy);
                 //We pass context
                 Picasso.with(ctx).load(image).into(post_image);
-            }
-            else
-            {
-                ImageView post_image = (ImageView) mView.findViewById(R.id.imageViewx);
-                //We pass context
-                Picasso.with(ctx).load(image).into(post_image);
-            }
         }
+
     }
 
 }
