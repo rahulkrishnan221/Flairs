@@ -49,7 +49,8 @@
             android:configChanges="screenLayout|screenSize|orientation"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".recycle" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".branch_year"></activity>
     </application>
 
 </manifest>
