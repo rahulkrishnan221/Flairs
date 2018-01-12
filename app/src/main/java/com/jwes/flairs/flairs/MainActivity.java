@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         x = sf.getString(saveit,"");
         y=sf1.getString(saveit1,"");
 
-            startActivity(new Intent(MainActivity.this,subject_choice.class));
+            startActivity(new Intent(MainActivity.this, Profile.class));
 
 
 

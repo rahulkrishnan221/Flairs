@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="THE NEW ERA"
-        android:textColor="#ffffff"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="20dp"
         android:layout_marginTop="70dp"
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="LIBRARY"
-        android:textColor="#ffffff"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="30dp"
         android:layout_marginLeft="20dp"/>
@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="One for that will put an end to all your searches\nfor e-books and video tutorials......."
-        android:textColor="#ffffff"
+        android:textColor="@color/white"
         android:textStyle="italic"
         android:textSize="15dp"
         android:layout_marginLeft="20dp"
@@ -52,7 +52,7 @@
             android:text="E-Books"
             android:textStyle="bold"
             android:layout_gravity="center"
-            android:textColor="#00bcd4"
+            android:textColor="@color/colorPrimary"
             android:textSize="20dp"
             android:layout_marginLeft="30dp"/>
 
@@ -78,7 +78,7 @@
             android:text="Videos"
             android:textStyle="bold"
             android:layout_gravity="center"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="20dp"
             android:layout_marginLeft="40dp"/>
 

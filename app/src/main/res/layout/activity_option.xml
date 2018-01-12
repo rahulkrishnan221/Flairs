@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,9 +21,9 @@
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:background="@drawable/round"
-            android:backgroundTint="#00bcd4"
+            android:backgroundTint="@color/colorPrimary"
             android:text="Login"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:layout_marginTop="40dp"/>
         <Button
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/round"
             android:text="Sign Up"
-            android:textColor="#00bcd4"
+            android:textColor="@color/colorPrimary"
             android:textSize="16sp"
             android:layout_marginTop="40dp" />
     </LinearLayout>
