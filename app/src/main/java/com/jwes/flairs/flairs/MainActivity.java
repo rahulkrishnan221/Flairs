@@ -1,15 +1,24 @@
 package com.jwes.flairs.flairs;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import static com.jwes.flairs.flairs.branch_year.preference;
+import static com.jwes.flairs.flairs.branch_year.preference1;
+import static com.jwes.flairs.flairs.branch_year.saveit;
+import static com.jwes.flairs.flairs.branch_year.saveit1;
+
 public class MainActivity extends AppCompatActivity {
 
     private LinearLayout vdo;
     private LinearLayout book;
+    String x;
+    String y;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +45,29 @@ public class MainActivity extends AppCompatActivity {
 
     public void bookfn()
     {
-
-        startActivity(new Intent(MainActivity.this,branch_year.class));
+        SharedPreferences sf=getSharedPreferences(preference, Context.MODE_PRIVATE);
+        SharedPreferences sf1=getSharedPreferences(preference1,Context.MODE_PRIVATE);
+        x = sf.getString(saveit,"");
+        y=sf1.getString(saveit1,"");
+        if(x.equals("none selected")||y.equals("none selected")) {
+            startActivity(new Intent(MainActivity.this, branch_year.class));
+        }
+        else
+            startActivity(new Intent(MainActivity.this,recycle.class));
 
     }
 
     public void vdofn()
     {
 
-        startActivity(new Intent(MainActivity.this,recycle.class));
+        SharedPreferences sf=getSharedPreferences(preference, Context.MODE_PRIVATE);
+        SharedPreferences sf1=getSharedPreferences(preference1,Context.MODE_PRIVATE);
+        x = sf.getString(saveit,"");
+        y=sf1.getString(saveit1,"");
+
+            startActivity(new Intent(MainActivity.this, branch_year.class));
+
+
 
     }
 }

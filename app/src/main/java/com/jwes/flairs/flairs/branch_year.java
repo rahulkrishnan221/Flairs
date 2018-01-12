@@ -1,5 +1,7 @@
 package com.jwes.flairs.flairs;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +14,11 @@ public class branch_year extends AppCompatActivity implements AdapterView.OnItem
 
     Spinner spinner;
     Spinner spinner1;
+    public static final String preference="pref";
+    public static final String preference1="pref1";
+    public static final String saveit="savekey";
+    public static final String saveit1="savekey1";
+    String x,y;
 
 
     @Override
@@ -46,8 +53,23 @@ public class branch_year extends AppCompatActivity implements AdapterView.OnItem
         // An item was selected. You can retrieve the selected item using
         String selected1  = spinner.getSelectedItem().toString();
         String selected2  = spinner1.getSelectedItem().toString();
-        Toast.makeText(this, selected1, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this,selected2, Toast.LENGTH_SHORT).show();
+
+       SharedPreferences sf=getSharedPreferences(preference,Context.MODE_PRIVATE);
+        SharedPreferences sf1=getSharedPreferences(preference1,Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = sf.edit();
+        SharedPreferences.Editor editor1=sf1.edit();
+
+        editor.putString(saveit,selected1 );
+        editor1.putString(saveit1,selected2);
+        editor.commit();
+        editor1.commit();
+
+        x = sf.getString(saveit,"");
+        y=sf1.getString(saveit1,"");
+        Toast.makeText(this, x, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, y, Toast.LENGTH_SHORT).show();
+
     }
 
     public void onNothingSelected(AdapterView<?> adapter) {

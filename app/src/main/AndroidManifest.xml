@@ -52,6 +52,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".branch_year"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".subject_choice" />
     </application>
 
 </manifest>
