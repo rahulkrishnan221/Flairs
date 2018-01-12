@@ -26,12 +26,6 @@
             android:name=".option"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".login"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".register"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".loginf"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
