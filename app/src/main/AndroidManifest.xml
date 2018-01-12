@@ -50,7 +50,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".recycle" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".branch_year"></activity>
+        <activity android:name=".branch_year"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
