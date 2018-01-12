@@ -62,8 +62,6 @@ public class recycle extends AppCompatActivity {
 
             mBlogList.setAdapter(firebaseRecyclerAdapter);
 
-
-
     }
 
     public static class BlogViewHolder extends RecyclerView.ViewHolder{

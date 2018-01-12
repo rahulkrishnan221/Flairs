@@ -64,8 +64,7 @@ public class VideoFragment extends Fragment{
 
     public void videocall()
     {
-        Intent i = new Intent(getActivity(), branch_selection.class);
-        startActivity(i);
+
 
     }
 

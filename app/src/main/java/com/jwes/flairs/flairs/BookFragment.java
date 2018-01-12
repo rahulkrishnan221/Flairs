@@ -43,8 +43,7 @@ public class BookFragment extends Fragment {
 
     public void bookcall()
      {
-     Intent i = new Intent(getActivity(), branch_selection.class);
-     startActivity(i);
+
 
      }
 
