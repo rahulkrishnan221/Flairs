@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         x = sf.getString(saveit, "");
         y = sf1.getString(saveit1, "");
 
-        startActivity(new Intent(MainActivity.this, recycle.class));
+        startActivity(new Intent(MainActivity.this, Profile.class));
     }
 
     public void profilefn() {
@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        finish();
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

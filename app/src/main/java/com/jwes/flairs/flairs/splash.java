@@ -58,8 +58,7 @@ public class splash extends AppCompatActivity {
                     String x = sf.getString(saveit, "");
                     String y = sf1.getString(saveit1, "");
                     if (x.equals("none selected") || y.equals("none selected")) {
-                        firebaseAuth.signOut();
-                        startActivity(new Intent(splash.this, loginf.class));
+                        startActivity(new Intent(splash.this, branch_year.class));
                     }
                     else
                         startActivity(new Intent(splash.this,MainActivity.class));

@@ -80,7 +80,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Department"
+                    android:text="Department and Year"
                     android:textSize="20dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="5dp"/>
@@ -127,7 +127,7 @@
                 android:layout_height="30dp"
                 android:orientation="horizontal"
                 android:layout_marginTop="15dp"
-                android:id="@+id/developers">
+                android:id="@+id/rate">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -154,8 +154,7 @@
                 android:layout_width="300dp"
                 android:layout_height="30dp"
                 android:orientation="horizontal"
-                android:layout_marginTop="15dp"
-                android:id="@+id/rate">
+                android:layout_marginTop="15dp">
 
                 <ImageView
                     android:layout_width="30dp"

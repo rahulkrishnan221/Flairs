@@ -7,10 +7,12 @@
     tools:context="com.jwes.flairs.flairs.rate">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="344dp"
         android:layout_height="wrap_content"
         android:text="This is rate layout"
-        android:textSize="50dp"/>
+        android:textSize="50dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp" />
 
 
 </android.support.constraint.ConstraintLayout>
