@@ -32,7 +32,6 @@ public class recycle extends AppCompatActivity {
 
         //Recycler View
         mBlogList=(RecyclerView)findViewById(R.id.blog_list);
-        mBlogList.setHasFixedSize(true);
         mBlogList.setLayoutManager(new GridLayoutManager(this,columns));
 
         //send a Query to the database

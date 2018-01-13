@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.jwes.flairs.flairs.MainActivity"
-    android:background="@drawable/students"
+    android:background="@drawable/main_background"
     android:orientation="vertical">
     
     <TextView
@@ -15,7 +15,7 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="20dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="40dp"
         android:layout_marginLeft="20dp"/>
 
     <TextView
@@ -31,7 +31,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="One for that will put an end to all your searches\nfor e-books and video tutorials......."
+        android:text="One stop for that will put an end to all your \nsearches for e-books and video tutorials......."
         android:textColor="@color/white"
         android:textStyle="italic"
         android:textSize="15dp"
@@ -89,6 +89,24 @@
             android:layout_gravity="center"
             android:layout_marginLeft="5dp"/>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/profile"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Do you want to go to your profile?"
+        android:textColor="@color/white"
+        android:textStyle="italic"
+        android:textSize="15dp"
+        android:layout_marginTop="90dp"
+        android:gravity="bottom"
+        android:textAlignment="center"/>
+
+    <View
+        android:layout_width="230dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginLeft="65dp" />
 
 
 </LinearLayout>

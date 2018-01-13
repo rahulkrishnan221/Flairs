@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import static com.jwes.flairs.flairs.branch_year.preference;
 import static com.jwes.flairs.flairs.branch_year.preference1;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout book;
     String x;
     String y;
+    private TextView profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,14 @@ public class MainActivity extends AppCompatActivity {
 
         book=(LinearLayout)findViewById(R.id.temp);
         vdo=(LinearLayout)findViewById(R.id.temp1);
+        profile=(TextView) findViewById(R.id.profile);
 
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                profilefn();
+            }
+        });
         book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,8 +75,11 @@ public class MainActivity extends AppCompatActivity {
         y=sf1.getString(saveit1,"");
 
             startActivity(new Intent(MainActivity.this,recycle.class));
-
-
-
     }
+    public void profilefn()
+    {
+        startActivity(new Intent(MainActivity.this, Profile.class));
+    }
+
+
 }

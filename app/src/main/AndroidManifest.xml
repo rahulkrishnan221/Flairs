@@ -43,7 +43,8 @@
             android:configChanges="screenLayout|screenSize|orientation"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".recycle" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.new"/>
         <activity android:name=".contact" />
         <activity android:name=".developers" />
         <activity
