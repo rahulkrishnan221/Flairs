@@ -44,11 +44,13 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".recycle" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".contact"/>
-        <activity android:name=".developers"/>
-        <activity android:name=".branch_year"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".contact" />
+        <activity android:name=".developers" />
+        <activity
+            android:name=".branch_year"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".subject_choice" />
+        <activity android:name=".video_list"></activity>
     </application>
 
 </manifest>
