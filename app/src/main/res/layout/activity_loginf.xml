@@ -35,11 +35,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="Bauhaus-93"
                 android:text="Flairs"
-                android:textAllCaps="false"
                 android:textSize="50sp"
                 android:textStyle="bold"
-                android:textColor="#FFFFFF"
-                android:tooltipText=""/>
+                android:textColor="#FFFFFF" />
 
 
 

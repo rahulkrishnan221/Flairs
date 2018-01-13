@@ -44,9 +44,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".recycle" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".branch_year"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".subject_choice" />
+        <activity android:name=".branch_year"></activity>
+        <activity android:name=".subject_choice"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
