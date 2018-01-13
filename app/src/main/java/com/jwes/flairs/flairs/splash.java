@@ -18,7 +18,7 @@ import static com.jwes.flairs.flairs.branch_year.saveit;
 import static com.jwes.flairs.flairs.branch_year.saveit1;
 
 public class splash extends AppCompatActivity {
-    private static int SPLASH_TIME_OUT = 2000;
+    private static int SPLASH_TIME_OUT = 1000;
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -58,6 +58,7 @@ public class splash extends AppCompatActivity {
                     String x = sf.getString(saveit, "");
                     String y = sf1.getString(saveit1, "");
                     if (x.equals("none selected") || y.equals("none selected")) {
+                        firebaseAuth.signOut();
                         startActivity(new Intent(splash.this, loginf.class));
                     }
                     else
