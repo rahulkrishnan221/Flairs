@@ -1,6 +1,8 @@
 package com.jwes.flairs.flairs;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +11,11 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.google.firebase.auth.FirebaseAuth;
+
+import static com.jwes.flairs.flairs.branch_year.preference;
+import static com.jwes.flairs.flairs.branch_year.preference1;
+import static com.jwes.flairs.flairs.branch_year.saveit;
+import static com.jwes.flairs.flairs.branch_year.saveit1;
 
 public class splash extends AppCompatActivity {
     private static int SPLASH_TIME_OUT = 2000;
@@ -40,7 +47,22 @@ public class splash extends AppCompatActivity {
                 // close this activity
                 firebaseAuth = FirebaseAuth.getInstance();
                 if(firebaseAuth.getCurrentUser()!=null) {
-                    startActivity(new Intent(splash.this, MainActivity.class));
+
+                    SharedPreferences sf = getSharedPreferences(preference, Context.MODE_PRIVATE);
+                    SharedPreferences sf1 = getSharedPreferences(preference1, Context.MODE_PRIVATE);
+
+                    SharedPreferences.Editor editor = sf.edit();
+                    SharedPreferences.Editor editor1 = sf1.edit();
+
+
+                    String x = sf.getString(saveit, "");
+                    String y = sf1.getString(saveit1, "");
+                    if (x.equals("none selected") || y.equals("none selected")) {
+                        startActivity(new Intent(splash.this, loginf.class));
+                    }
+                    else
+                        startActivity(new Intent(splash.this,MainActivity.class));
+
                 }
                 else
                 {

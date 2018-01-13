@@ -99,6 +99,7 @@ public class loginf extends AppCompatActivity {
             Toast.makeText(this, "Please enter the valid password", Toast.LENGTH_SHORT).show();
         else
             login();
+
     }
 
 
@@ -139,7 +140,7 @@ public class loginf extends AppCompatActivity {
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             if (result.isSuccess()) {
-                Intent i=new Intent(loginf.this,MainActivity.class);
+                Intent i=new Intent(loginf.this,branch_year.class);
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
                 startActivity(i);
@@ -163,7 +164,7 @@ public class loginf extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("TAG", "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            startActivity(new Intent(loginf.this,MainActivity.class));
+                            startActivity(new Intent(loginf.this,branch_year.class));
 
                         } else {
                             // If sign in fails, display a message to the user.

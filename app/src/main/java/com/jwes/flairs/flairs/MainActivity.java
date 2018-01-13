@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        book=(LinearLayout)findViewById(R.id.temp);
-        vdo=(LinearLayout)findViewById(R.id.temp1);
-        profile=(TextView) findViewById(R.id.profile);
+        book = (LinearLayout) findViewById(R.id.temp);
+        vdo = (LinearLayout) findViewById(R.id.temp1);
+        profile = (TextView) findViewById(R.id.profile);
 
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,34 +52,41 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void bookfn()
-    {
-        SharedPreferences sf=getSharedPreferences(preference, Context.MODE_PRIVATE);
-        SharedPreferences sf1=getSharedPreferences(preference1,Context.MODE_PRIVATE);
-        x = sf.getString(saveit,"");
-        y=sf1.getString(saveit1,"");
-        if(x.equals("none selected")||y.equals("none selected")) {
+    public void bookfn() {
+        SharedPreferences sf = getSharedPreferences(preference, Context.MODE_PRIVATE);
+        SharedPreferences sf1 = getSharedPreferences(preference1, Context.MODE_PRIVATE);
+        x = sf.getString(saveit, "");
+        y = sf1.getString(saveit1, "");
+        if (x.equals("none selected") || y.equals("none selected")) {
             startActivity(new Intent(MainActivity.this, branch_year.class));
-        }
-        else
-            startActivity(new Intent(MainActivity.this,recycle.class));
+        } else
+            startActivity(new Intent(MainActivity.this, recycle.class));
 
     }
 
-    public void vdofn()
-    {
+    public void vdofn() {
 
-        SharedPreferences sf=getSharedPreferences(preference, Context.MODE_PRIVATE);
-        SharedPreferences sf1=getSharedPreferences(preference1,Context.MODE_PRIVATE);
-        x = sf.getString(saveit,"");
-        y=sf1.getString(saveit1,"");
+        SharedPreferences sf = getSharedPreferences(preference, Context.MODE_PRIVATE);
+        SharedPreferences sf1 = getSharedPreferences(preference1, Context.MODE_PRIVATE);
+        x = sf.getString(saveit, "");
+        y = sf1.getString(saveit1, "");
 
-            startActivity(new Intent(MainActivity.this,recycle.class));
+        startActivity(new Intent(MainActivity.this, recycle.class));
     }
-    public void profilefn()
-    {
+
+    public void profilefn() {
         startActivity(new Intent(MainActivity.this, Profile.class));
     }
 
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+
+
+    }
 }
