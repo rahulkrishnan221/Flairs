@@ -1,5 +1,6 @@
 package com.jwes.flairs.flairs;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -25,6 +26,7 @@ public class recycle extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference myRef;
     private int columns=2;
+    ProgressDialog loading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,7 @@ public class recycle extends AppCompatActivity {
         mBlogList.setLayoutManager(new GridLayoutManager(this,columns));
 
         //send a Query to the database
+        loading= ProgressDialog.show(recycle.this,"Please wait","Hold on......",true,true);
 
         database=FirebaseDatabase.getInstance();
         myRef=database.getReference("Data");
@@ -56,6 +59,7 @@ public class recycle extends AppCompatActivity {
              {
                          viewHolder.setTitle(model.getTitle());
                          viewHolder.setImage(getApplicationContext(), model.getImage());
+                 loading.dismiss();
              }
         };
 
