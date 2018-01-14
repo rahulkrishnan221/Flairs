@@ -27,7 +27,6 @@ public class Profile extends AppCompatActivity {
     private FirebaseAuth authen;
     private LinearLayout branch_year_button;
     private LinearLayout cont;
-    private LinearLayout develop;
     private LinearLayout rating;
 
 
@@ -46,7 +45,6 @@ public class Profile extends AppCompatActivity {
         });
         branch_year_button=(LinearLayout)findViewById(R.id.branch_year_button);
         cont=(LinearLayout)findViewById(R.id.contact);
-        develop=(LinearLayout)findViewById(R.id.developers);
         rating=(LinearLayout)findViewById(R.id.rate);
 
         branch_year_button.setOnClickListener(new View.OnClickListener() {
@@ -61,13 +59,6 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 contact();
-            }
-        });
-
-        develop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                developers();
             }
         });
 
@@ -98,13 +89,6 @@ public class Profile extends AppCompatActivity {
             startActivity(new Intent(Profile.this,option.class));
 
         }
-    }
-
-
-    public void developers()
-    {
-            startActivity(new Intent(Profile.this,developers.class));
-
     }
 
     public void contact()
