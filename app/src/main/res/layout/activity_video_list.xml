@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.jwes.flairs.flairs.video_list"
+    tools:context="com.jwes.flairs.flairs.recycle_video"
     android:background="#D3D3D3">
     
     <LinearLayout
@@ -16,11 +16,14 @@
 
         <ImageView
             android:layout_width="320dp"
-            android:layout_height="200dp"
+            android:layout_height="180dp"
             android:id="@+id/videothubnail"
             android:background="#D3D3D3"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp">
+
+
+        </ImageView>
 
         <TextView
             android:id="@+id/videotitle"

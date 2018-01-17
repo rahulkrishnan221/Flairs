@@ -37,6 +37,7 @@ public class subject_choice extends AppCompatActivity {
     ProgressDialog loading;
     public static final String preference3="pref3";
     public static final String saveit3="savekey3";
+    String book_video;
 
 
     @Override
@@ -56,7 +57,7 @@ public class subject_choice extends AppCompatActivity {
         SharedPreferences sf2=getSharedPreferences(preference2,Context.MODE_PRIVATE);
         SharedPreferences sf=getSharedPreferences(preference,Context.MODE_PRIVATE);
         SharedPreferences sf1=getSharedPreferences(preference1,Context.MODE_PRIVATE);
-        String book_video = sf2.getString(saveit2,"");
+         book_video = sf2.getString(saveit2,"");
         String department=sf.getString(saveit,"");
         String year=sf1.getString(saveit1,"");
         //Start the same Activity
@@ -96,7 +97,10 @@ public class subject_choice extends AppCompatActivity {
 
                         editor3.putString(saveit3,post_key );
                         editor3.commit();
+                        if(book_video.equals("book"))
                         startActivity(new Intent(subject_choice.this,recycle.class));
+                        if (book_video.equals("video"))
+                            startActivity(new Intent(subject_choice.this,recycle_video.class));
 
 
 

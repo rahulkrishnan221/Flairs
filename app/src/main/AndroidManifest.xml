@@ -50,10 +50,11 @@
             android:name=".branch_year"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".subject_choice" />
-        <activity android:name=".video_list"></activity>
+        <activity android:name=".recycle_video"></activity>
         <activity
             android:name=".rate"
             android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>
