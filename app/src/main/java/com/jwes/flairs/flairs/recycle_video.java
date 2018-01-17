@@ -18,6 +18,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -33,6 +34,8 @@ public class recycle_video extends AppCompatActivity {
     private RecyclerView mBlogList;
     FirebaseDatabase database;
     DatabaseReference myRef;
+    public static final String preference5="ref5";
+    public static final String saveit5="savekey5";
 
     ProgressDialog loading;
     @Override
@@ -67,9 +70,26 @@ public class recycle_video extends AppCompatActivity {
             @Override
             protected void populateViewHolder(BlogViewHolder viewHolder, ModelClass model,int position)
             {
+
+                final String post_key=getRef(position).getKey();
+
+
                 viewHolder.setTitle(model.getTitle());
                 viewHolder.setImage(getApplicationContext(), model.getImage());
                 loading.dismiss();
+                viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        SharedPreferences sf5=getSharedPreferences(preference5,Context.MODE_PRIVATE);
+
+                        SharedPreferences.Editor editor5=sf5.edit();
+                        editor5.putString(saveit5,post_key);
+                        editor5.commit();
+                        Toast.makeText(recycle_video.this, post_key, Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(recycle_video.this,VideoLandscape.class));
+
+                    }
+                });
             }
         };
 
@@ -83,15 +103,7 @@ public class recycle_video extends AppCompatActivity {
         {
             super(itemView);
             mView=itemView;
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.co.in/"));
-                    Intent browserChooserIntent=Intent.createChooser(browserIntent,"Choose browser of your choice");
-                    v.getContext().startActivity(browserChooserIntent);
 
-                }
-            });
         }
 
         public void setTitle(String title) {

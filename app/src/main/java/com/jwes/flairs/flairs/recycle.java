@@ -14,6 +14,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -31,6 +32,8 @@ public class recycle extends AppCompatActivity {
     DatabaseReference myRef;
     private int columns=2;
     ProgressDialog loading;
+    public static final String preference4="ref4";
+    public static final String saveit4="savekey4";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,9 +66,24 @@ public class recycle extends AppCompatActivity {
              @Override
              protected void populateViewHolder(BlogViewHolder viewHolder, ModelClass model,int position)
              {
-                         viewHolder.setTitle(model.getTitle());
+                 final String post_key=getRef(position).getKey();
+
+                 viewHolder.setTitle(model.getTitle());
                          viewHolder.setImage(getApplicationContext(), model.getImage());
                  loading.dismiss();
+                 viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                     @Override
+                     public void onClick(View view) {
+                         SharedPreferences sf4=getSharedPreferences(preference4,Context.MODE_PRIVATE);
+
+                         SharedPreferences.Editor editor4=sf4.edit();
+                         editor4.putString(saveit4,post_key);
+                         editor4.commit();
+                         Toast.makeText(recycle.this, post_key, Toast.LENGTH_SHORT).show();
+                         startActivity(new Intent(recycle.this,pdf.class));
+
+                     }
+                 });
              }
         };
 
@@ -79,15 +97,7 @@ public class recycle extends AppCompatActivity {
         {
             super(itemView);
             mView=itemView;
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.co.in/"));
-                    Intent browserChooserIntent=Intent.createChooser(browserIntent,"Choose browser of your choice");
-                    v.getContext().startActivity(browserChooserIntent);
 
-                }
-            });
         }
 
         public void setTitle(String title) {
