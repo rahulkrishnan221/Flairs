@@ -9,10 +9,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import static com.jwes.flairs.flairs.branch_year.preference;
-import static com.jwes.flairs.flairs.branch_year.preference1;
-import static com.jwes.flairs.flairs.branch_year.saveit;
-import static com.jwes.flairs.flairs.branch_year.saveit1;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     String x;
     String y;
     private TextView profile;
+    public static  String ebook_video="none";
+    public static final String preference2="pref2";
+    public static final String saveit2="savekey2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,29 +49,35 @@ public class MainActivity extends AppCompatActivity {
                 vdofn();
             }
         });
+
+
     }
 
 
     public void bookfn() {
-        SharedPreferences sf = getSharedPreferences(preference, Context.MODE_PRIVATE);
-        SharedPreferences sf1 = getSharedPreferences(preference1, Context.MODE_PRIVATE);
-        x = sf.getString(saveit, "");
-        y = sf1.getString(saveit1, "");
-        if (x.equals("none selected") || y.equals("none selected")) {
-            startActivity(new Intent(MainActivity.this, branch_year.class));
-        } else
-            startActivity(new Intent(MainActivity.this, recycle.class));
+        SharedPreferences sf2=getSharedPreferences(preference2,Context.MODE_PRIVATE);
+
+
+        SharedPreferences.Editor editor2 = sf2.edit();
+
+        editor2.putString(saveit2,"book" );
+        editor2.commit();
+            startActivity(new Intent(MainActivity.this, subject_choice.class));
+
 
     }
 
     public void vdofn() {
 
-        SharedPreferences sf = getSharedPreferences(preference, Context.MODE_PRIVATE);
-        SharedPreferences sf1 = getSharedPreferences(preference1, Context.MODE_PRIVATE);
-        x = sf.getString(saveit, "");
-        y = sf1.getString(saveit1, "");
+        SharedPreferences sf2=getSharedPreferences(preference2,Context.MODE_PRIVATE);
 
-        startActivity(new Intent(MainActivity.this, Profile.class));
+
+        SharedPreferences.Editor editor2 = sf2.edit();
+
+        editor2.putString(saveit2,"video" );
+        editor2.commit();
+
+        startActivity(new Intent(MainActivity.this, subject_choice.class));
     }
 
     public void profilefn() {

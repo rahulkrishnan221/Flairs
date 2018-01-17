@@ -23,7 +23,6 @@ public class registerf extends AppCompatActivity {
     private EditText txtPassword;
     private FirebaseAuth firebaseAuth;
     private Button registerf;
-    private EditText txtName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +48,6 @@ public class registerf extends AppCompatActivity {
             Toast.makeText(this, "Please enter the email", Toast.LENGTH_SHORT).show();
         else if(txtPassword.getText().length()<1)
             Toast.makeText(this, "Please enter the valid password", Toast.LENGTH_SHORT).show();
-        else if(txtName.getText().length()<1)
-            Toast.makeText(this, "Please enter the Name", Toast.LENGTH_SHORT).show();
 
         else
             register();

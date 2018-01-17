@@ -1,6 +1,9 @@
 package com.jwes.flairs.flairs;
 
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,7 +25,7 @@ PDFView pdfView;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pdf);
-        pdfView=(PDFView)findViewById(R.id.pdfview);
+       pdfView=(PDFView)findViewById(R.id.pdfview);
         new pdf.Retrievepdfstream().execute("https://firebasestorage.googleapis.com/v0/b/flairs-6fa83.appspot.com/o/video%2FDS%20Record%20Final.pdf?alt=media&token=90462032-bd4c-468b-91d0-c44473852786");
     }
     class Retrievepdfstream extends AsyncTask<String, Void,byte[]>
@@ -64,5 +67,9 @@ ProgressDialog loading;
             super.onPreExecute();
             loading=ProgressDialog.show(pdf.this,"Please wait","Hold on......",true,true);
         }
+
+
+
+
     }
 }

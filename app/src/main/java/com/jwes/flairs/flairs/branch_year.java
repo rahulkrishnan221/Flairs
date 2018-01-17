@@ -88,7 +88,7 @@ public class branch_year extends AppCompatActivity implements AdapterView.OnItem
         editor.commit();
         editor1.commit();
 
-     //   x = sf.getString(saveit,"");
+     //   x = sf.getString(saveit2,"");
       //  y=sf1.getString(saveit1,"");
       //  Toast.makeText(this, x, Toast.LENGTH_SHORT).show();
        // Toast.makeText(this, y, Toast.LENGTH_SHORT).show();

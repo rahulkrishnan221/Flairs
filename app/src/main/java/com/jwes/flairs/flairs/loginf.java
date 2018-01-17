@@ -38,6 +38,8 @@ public class loginf extends AppCompatActivity {
     private static final int RC_SIGN_IN=3;
     SignInButton gsb;
     GoogleApiClient mGoogleApiClient;
+    FirebaseUser user;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,7 @@ public class loginf extends AppCompatActivity {
         forgot=(LinearLayout) findViewById(R.id.forgot);
         gsb=(SignInButton) findViewById(R.id.googlesb);
         loginf=(Button)findViewById(R.id.loginf) ;
+
         loginf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,7 +101,11 @@ public class loginf extends AppCompatActivity {
         else if(txtPwd.getText().length()<1)
             Toast.makeText(this, "Please enter the valid password", Toast.LENGTH_SHORT).show();
         else
+
+
             login();
+
+
 
     }
 
@@ -116,10 +123,19 @@ public class loginf extends AppCompatActivity {
                         progressDialog.dismiss();
 
                         if (task.isSuccessful()) {
-                            Toast.makeText(loginf.this, "Login successful", Toast.LENGTH_LONG).show();
-                            Intent i = new Intent(loginf.this, MainActivity.class);
-                            i.putExtra("Email", mAuth.getCurrentUser().getEmail());
-                            startActivity(i);
+
+
+                            user = FirebaseAuth.getInstance().getCurrentUser();
+                            if (user.isEmailVerified()) {
+                                Intent i = new Intent(loginf.this, branch_year.class);
+                                Toast.makeText(loginf.this, "Login successful", Toast.LENGTH_LONG).show();
+                                i.putExtra("Email", mAuth.getCurrentUser().getEmail());
+                                startActivity(i);
+                            }
+                            else {
+                                Toast.makeText(loginf.this, "Please verify your account", Toast.LENGTH_SHORT).show();
+                                mAuth.signOut();
+                            }
                         } else {
                             Log.e("ERROR", task.getException().toString());
                             Toast.makeText(loginf.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
