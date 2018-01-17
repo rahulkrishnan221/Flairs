@@ -35,6 +35,9 @@ public class subject_choice extends AppCompatActivity {
     DatabaseReference myRef;
     private int columns=2;
     ProgressDialog loading;
+    public static final String preference3="pref3";
+    public static final String saveit3="savekey3";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +60,7 @@ public class subject_choice extends AppCompatActivity {
         String department=sf.getString(saveit,"");
         String year=sf1.getString(saveit1,"");
         //Start the same Activity
-        Toast.makeText(this, book_video, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, department, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, year, Toast.LENGTH_SHORT).show();
+
         String ref=book_video+"_"+department+"_"+year;
         myRef=database.getReference(ref);
 
@@ -79,11 +80,29 @@ public class subject_choice extends AppCompatActivity {
             @Override
             protected void populateViewHolder(BlogViewHolder viewHolder, ModelClass_subject model,int position)
             {
+                final String post_key=getRef(position).getKey();
+
                 viewHolder.setTitle1(model.getTitle1());
                 viewHolder.setCode(model.getCode());
-                String str=viewHolder.code1;
-                Toast.makeText(subject_choice.this, str, Toast.LENGTH_SHORT).show();
                 loading.dismiss();
+                viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(subject_choice.this, post_key, Toast.LENGTH_SHORT).show();
+                        SharedPreferences sf3=getSharedPreferences(preference3,Context.MODE_PRIVATE);
+
+
+                        SharedPreferences.Editor editor3 = sf3.edit();
+
+                        editor3.putString(saveit3,post_key );
+                        editor3.commit();
+                        startActivity(new Intent(subject_choice.this,recycle.class));
+
+
+
+                    }
+                });
+
 
             }
         };
@@ -94,20 +113,13 @@ public class subject_choice extends AppCompatActivity {
 
     public static class BlogViewHolder extends RecyclerView.ViewHolder{
         View mView;
-        String code1="";
+
         public BlogViewHolder(View itemView)
         {
             super(itemView);
-            mView=itemView;
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.co.in/"));
-                    Intent browserChooserIntent=Intent.createChooser(browserIntent,"Choose browser of your choice");
-                    v.getContext().startActivity(browserChooserIntent);
 
-                }
-            });
+            mView=itemView;
+
         }
 
         public void setTitle1(String title1) {
@@ -119,7 +131,6 @@ public class subject_choice extends AppCompatActivity {
         {
             TextView post_code=(TextView)mView.findViewById(R.id.code);
             post_code.setText(code);
-            code1=code;
 
         }
 

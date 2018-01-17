@@ -3,6 +3,7 @@ package com.jwes.flairs.flairs;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,9 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
+
+import static com.jwes.flairs.flairs.subject_choice.preference3;
+import static com.jwes.flairs.flairs.subject_choice.saveit3;
 
 public class recycle extends AppCompatActivity {
 
@@ -40,7 +44,9 @@ public class recycle extends AppCompatActivity {
         loading= ProgressDialog.show(recycle.this,"Please wait","Hold on......",true,true);
 
         database=FirebaseDatabase.getInstance();
-        myRef=database.getReference("Data");
+        SharedPreferences sf3=getSharedPreferences(preference3,Context.MODE_PRIVATE);
+        String book_cover = sf3.getString(saveit3,"");
+        myRef=database.getReference(book_cover);
     }
 
     @Override
