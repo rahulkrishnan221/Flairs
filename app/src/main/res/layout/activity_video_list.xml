@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context="com.jwes.flairs.flairs.recycle_video"
     android:background="#D3D3D3">
-    
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="280dp"
         android:orientation="vertical"
         android:layout_marginBottom="1dp"
         android:background="@color/white">
 
+
         <ImageView
-            android:layout_width="320dp"
-            android:layout_height="180dp"
             android:id="@+id/videothubnail"
-            android:background="#D3D3D3"
+            android:layout_width="360dp"
+            android:layout_height="160dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp">
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:background="#D3D3D3">
 
 
         </ImageView>
@@ -35,7 +37,7 @@
             android:textStyle="italic"
             android:layout_marginLeft="20dp"
             android:paddingTop="10dp"
-            android:layout_marginTop="10dp"/>
-    </LinearLayout>
+            android:layout_marginTop="200dp"/>
+    </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>
